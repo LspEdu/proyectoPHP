@@ -16,13 +16,13 @@
     require_once '../src/auxiliar.php';
 
     $pdo = conectar();
-    $usuario = New App\Tablas\Usuario($_SESSION['login']);
-    
+    $usuario = App\Tablas\Usuario::logueado();
+    $persona = $usuario->tienedni();
+    echo($persona);
 /*     $sent = $pdo->query("SELECT * FROM persona ORDER BY dni");
  */
 /*     if(App\Tablas\Usuario::esta_logueado()){
         $usuario = \App\Tablas\Usuario::obtener(intval($_SESSION['login']['id']));
-
     } */
 
 
@@ -50,7 +50,7 @@
                 </th>
             </tr>
             <tbody>
-                <?php foreach ($sent as $fila): ?>
+                <?php foreach ($usuario as $fila): ?>
                 <tr>
                     <td><?= $fila['dni'] ?></td>
                     <td><?= $fila['nombre'] ?></td>

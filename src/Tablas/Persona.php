@@ -13,7 +13,7 @@ class Persona extends Modelo
     private $apellido2;
     private $gen;
 
-    public function __construct(array $campos)
+    public  function __construct(array $campos)
     {
         $this->tabla = 'persona';
         $this->id = $campos['id'];
@@ -24,10 +24,9 @@ class Persona extends Modelo
         $this->gen = $campos['gen'];
     }
 
-    public function tienedni(Usuario $usuario)
-    {
-        if($usuario::esta_logueado()){
-            echo("SI");
-        }
+    public static function constructor_usuario(){
+        
     }
+
+    
 }

@@ -2,6 +2,8 @@
 
 namespace App\Tablas;
 
+use App\Tablas\Persona;
+
 use PDO;
 
 class Usuario extends Modelo 
@@ -54,5 +56,13 @@ class Usuario extends Modelo
     }
     public function getId(){
         return $this->id;
+    }
+    public function tienedni()
+    {
+        if($this::esta_logueado()){
+            return Persona::constructor_usuario();
+        } else{
+            return false;
+        }
     }
 }
